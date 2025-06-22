@@ -1,0 +1,92 @@
+BODY {
+	background : #FFFFFF;
+	font-family : Verdana;
+	font-size : 10px;
+}
+
+H1 {
+	font-style : italic;
+	font-size : 12px;
+}
+
+A {
+	color : Navy;
+	font-weight : bold;
+}
+
+A:HOVER {
+	color : White;
+	background : Navy;
+	font-weight : bold;
+}
+
+TABLE {
+	background : transparent;
+}
+
+TD {
+	border : thin groove;
+	font-family : Verdana;
+	font-size : 10px;
+}
+
+
+INPUT.clsButton {
+	BORDER-RIGHT: #000000 1px solid; 
+	BORDER-LEFT: #000000 1px solid; 
+	BORDER-TOP: #000000 1px solid; 
+	BORDER-BOTTOM: #000000 1px solid; 
+	MARGIN-TOP: 2px;  MARGIN-RIGHT: 2px;  
+	MARGIN-BOTTOM: 2px; FONT-WEIGHT: bold; 
+	MARGIN-LEFT: 2px; COLOR: #FFFFFF; 
+	BACKGROUND-COLOR: #0066CC; 
+	FONT-SIZE: 11px
+}
+
+INPUT.clsButton2 {
+	BORDER-RIGHT: #000000 1px solid; 
+	BORDER-LEFT: #000000 1px solid; 
+	BORDER-TOP: #000000 1px solid; 
+	BORDER-BOTTOM: #000000 1px solid; 
+	MARGIN-TOP: 2px;  
+	MARGIN-RIGHT: 2px;  
+	MARGIN-BOTTOM: 2px; 
+	FONT-WEIGHT: bold; 
+	MARGIN-LEFT: 2px; 
+	BACKGROUND-COLOR: #0066CC; 
+	FONT-SIZE: 11px; 
+COLOR: #FFFFFF
+}
+
+SELECT.clsTextbox {
+	BORDER-RIGHT: #000000 0px solid; 
+	BORDER-LEFT: #000000 0px solid; 
+	BORDER-TOP: #000000 0px solid; 
+	BORDER-BOTTOM: #000000 0px solid; 
+	MARGIN-TOP: 2px;  
+	MARGIN-RIGHT: 2px;  
+	MARGIN-BOTTOM: 2px; 
+	FONT-WEIGHT: bold; 
+	MARGIN-LEFT: 0px; 
+	BACKGROUND-COLOR: #CCCCFF; 
+	FONT-SIZE: 11px; 
+	COLOR: #000000;  
+	FONT-FAMILY: verdana,arial,helvetica
+}
+
+INPUT.clsButton3 {
+	BORDER-RIGHT: #000000 1px solid;
+	BORDER-LEFT: #000000 1px solid; 
+	BORDER-TOP: #000000 1px solid; 
+	BORDER-BOTTOM: #000000 1px solid; 
+	MARGIN-TOP: 2px;  
+	MARGIN-RIGHT: 2px;  
+	MARGIN-BOTTOM: 2px; 
+	FONT-WEIGHT: bold; 
+	MARGIN-LEFT: 2px; 
+	BACKGROUND-COLOR: #0066CC; 
+	FONT-SIZE: 11px; 
+	COLOR: #ffffff; 
+	width: 90px;  
+	FONT-FAMILY: verdana,arial,helvetica
+}
