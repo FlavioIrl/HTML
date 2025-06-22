@@ -1,0 +1,87 @@
+<html
+//header("content-type: text/html; charset=iso-8859-1");
+//require_once ("./config/config.php"); 
+include("./config/config.php");
+//$usuario = $_POST["usuario"];
+//$senha = $_POST["senha"]; 
+$usuario = "rm07";
+$senha = "rm07";
+
+$db=mysql_select_db("atacadao", $conecta);
+
+$sql = "SELECT login FROM usuarios WHERE login = '$usuario'" or die ("erro ao acessar a tabela #1"); 
+$sql2 = "SELECT login, senha FROM usuarios WHERE login = '$usuario' and senha = '$senha'" or die ("erro ao acessar a tabela #2");
+$sql3 = "SELECT login, relatorio, descricao FROM permissoes  WHERE login = '$usuario' ORDER BY relatorio ASC "  or die ();
+
+$query= mysql_query($sql); 
+$query2= mysql_query($sql2); 
+$query3= mysql_query($sql3); 
+
+$resultado = mysql_num_rows($query); 
+$resultado2 = mysql_num_rows($query2); 
+
+if ($resultado == 0) { 
+	echo $icon_alerta; 
+	echo $msg_erro_usu;
+	echo $txt_dica;
+	echo $msg_dica; 
+}else if ($resultado2 == 0) { 
+	echo $icon_alerta;
+	echo $msg_erro_pwd;
+	echo $txt_dica;
+	echo $msg_dica; 
+}else{ 
+?>
+<html>
+<head>
+<title>
+Visualização de Relatórios
+</title>
+</head>
+<body bgcolor="#<?phpecho $color_menu; ?>" background=<? echo $bg_menu; ?> bgcolor=#FFFFFF link=#FFFFFF vlink=#FFFFFF alink=#FFFFFF>
+<?php// na linha abaixo e enviado os campos do formulario para a busca php ?>
+
+<form name="form1" method="post" action="busca.php">
+<?php// aqui colaca os dados do banca em uma caixa de listagem ?>
+<select name="relatorio" size="1" id="relatorio" style="color: #<?phpecho $cor_texto_find ;?>">
+                      <?
+           
+           // conexao com o banco de dados aqui....
+          $sqlbusca = mysql_query("SELECT * FROM $usuario ORDER BY relatorio ASC" );
+          while($dados = mysql_fetch_array($sqlbusca)) {
+         
+          echo'<option value= '.$dados['relatorio'].'>'.$dados['relatorio'].' </option>';
+          }
+          ?>
+
+                    </select>
+
+<font size="1" face="Verdana" color="#<?phpecho $cor_texto_find ;?>" >Data do rel.</font><input type="text" name="datarel" id="datarel" size="12" style="color: #<? echo $cor_texto_find ;?>">&nbsp;&nbsp;<? echo $icon_find; ?>
+<p><font size="1" face="Verdana" color="#<?phpecho $cor_texto_find ;?>"><b>Obs.:Digitar a data sem espaço e barras Ex: 250406</b> </font>
+</form>
+<p>
+<p>
+<?phpecho $icon_noprint;?>&nbsp;&nbsp;&nbsp;&nbsp; <? echo $msg_noprint; ?> 
+<p>
+<p>
+<table border="0" cellpadding="1" cellspacing="0" width="120%" height="1">
+<?
+while($result = mysql_fetch_row($query3)) {
+$usuario = $result[0];
+$acesso = $result[1];
+$descr = $result[2];
+?>
+<tr>
+<td width="12"><p align="center"><input type=image <?phpecho $icon_print ?> onclick='window.open("arquivos/<?echo $acesso?>.pdf","","titlebar=no,toolbar=no,location=no,directories=no,status=no,menubar=yes,scrollbars=yes,fullscreen=no,resizable=yes,menubar=yes,width=600,height=400")'></p></td>
+<td width="15"><font face="verdana" size="2" color="#<?phpecho $cor_texto_desc; ?>"><center><b><?echo $acesso?></b></center></td>
+<td width="400"><font face="verdana" size="2" color="#<?phpecho $cor_texto_desc; ?>" ><b>&nbsp;&nbsp;<?echo $descr?></b></td>
+</tr>
+<?}?>
+</table>
+</body>
+</html>
+
+<?
+} 
+?>
+

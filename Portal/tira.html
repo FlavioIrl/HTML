@@ -1,0 +1,69 @@
+<?
+ini_set('max_execution_time','10');
+
+function Pinga($IP,$PORTA){
+    $IPAddress = $IP;
+    $Port = $PORTA;
+    $fp=@fsockopen ($IPAddress,$Port, $errno, $errstr,(float)10);
+
+    if ( $errno == "0") {
+         return print("<font color='#336600'><b>Online</b></font>");
+
+    } elseif ( $errno == "111" ) {
+         return print("<font color='#336600'><b>Online</b></font>");
+
+    } else {
+        return print("<font color='#FF3333'><b>Offline</b></font>");
+        fclose($fp);
+        }
+
+    }
+?>
+<html>
+<head>
+  <META HTTP-EQUIV="Refresh" CONTENT="10">
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <title>        Monitor Tira-Teima V.1         </title>
+<style>
+body {
+margin-top: 0;
+}
+table td {
+font-size: 8pt;
+font-family: Arial Black;
+}
+table th {
+border-style: solid;
+border-color: #000000;
+font-size: 12pt;
+font-family: Arial;
+color: #FFFFFF;
+background-color: #000000;
+}
+table td.barra {
+border-style: solid;
+border-color: #000000;
+font-family: Arial Black;
+font-size: 10pt;
+color: #ffffff;
+background-color: #000000;
+}
+</style>
+</head>
+<body>
+
+<table>
+<!-- BARRA DE TITULO -->
+<tr><th colspan=4>Monitor dos Tira-Teimas </th></tr>
+
+<tr><td>TiraTeima 1</td><td>Setor 22 </td><td><?php Pinga("10.118.12.1","6500"); // busca preço ?></td></tr>
+<tr><td>TiraTeima 2</td><td>Setor 29</td><td><?php Pinga("10.118.12.2","6500"); // busca preço ?></td></tr>
+<tr><td>TiraTeima 3</td><td>Setor 20</td><td><?php Pinga("10.118.12.3","6500"); // busca preço ?></td></tr>
+<tr><td>TiraTeima 4</td><td>Setor 5</td><td><?php Pinga("10.118.12.4","16510"); // tc504 ?></td></tr>
+<tr><td>TiraTeima 5</td><td>Setor 17</td><td><?php Pinga("10.118.12.5","16510"); // tc504  ?></td></tr>
+<tr><td>TiraTeima 6</td><td>Setor 34</td><td><?php Pinga("10.118.12.6","16510"); // tc504 ?></td></tr>
+<tr><td>TiraTeima 7</td><td>Frios</td><td><?php Pinga("10.118.12.7","16510"); // tc504 ?></td></tr>
+
+</table>
+</body>
+</html>
